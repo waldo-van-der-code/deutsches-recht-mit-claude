@@ -130,7 +130,7 @@ When auditing a live site's cookie banner, check all of the following:
 
 ## Astro-specific Patterns
 
-For Astro sites (biztrix-marketing, personal-site):
+For Astro sites:
 
 ```bash
 # Script tags in Astro
@@ -145,7 +145,7 @@ grep -r "import\.meta\.env\.PUBLIC_" --include="*.astro" --include="*.ts" src/
 
 ## Next.js-specific Patterns
 
-For Next.js sites (seumi-direct, glastrix.com):
+For Next.js sites:
 
 ```bash
 # Script component usage
