@@ -55,7 +55,7 @@ Retention: [RETENTION].
 
 ---
 
-## Impressum Checklist (TMG § 5 / DDG § 5)
+## Impressum Checklist (DDG § 5)
 
 Every commercial website must display an Impressum reachable within one click from every page.
 
@@ -64,28 +64,28 @@ Required fields:
 ```markdown
 # Impressum
 
-<!-- TMG § 5 Abs. 1 Nr. 1 — Anbieter -->
+<!-- DDG § 5 Abs. 1 Nr. 1 — Anbieter -->
 [Vorname Nachname] / [Firmenname + Rechtsform]
 [Straße Hausnummer]
 [PLZ Ort]
 Deutschland
 
-<!-- TMG § 5 Abs. 1 Nr. 2 — Kontakt -->
+<!-- DDG § 5 Abs. 1 Nr. 2 — Kontakt -->
 E-Mail: [email]
 Telefon: [phone] <!-- or Fax — one of these is required -->
 
-<!-- TMG § 5 Abs. 1 Nr. 3 — Registereintrag (if GmbH/AG/etc.) -->
+<!-- DDG § 5 Abs. 1 Nr. 3 — Registereintrag (if GmbH/AG/etc.) -->
 Registergericht: [Amtsgericht Stadt]
 Registernummer: [HRB/HRA XXXXX]
 
-<!-- TMG § 5 Abs. 1 Nr. 4 — USt-IdNr (if applicable) -->
+<!-- DDG § 5 Abs. 1 Nr. 4 — USt-IdNr (if applicable) -->
 Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE[9 digits]
 
-<!-- TMG § 5 Abs. 1 Nr. 6 — regulated profession (if applicable) -->
+<!-- DDG § 5 Abs. 1 Nr. 6 — regulated profession (if applicable) -->
 Zuständige Aufsichtsbehörde: [name + address]
 
-<!-- § 55 Abs. 2 RStV — responsible for content (if journalistic/editorial) -->
-Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
+<!-- § 18 Abs. 2 MStV — responsible for content (if journalistic/editorial) -->
+Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:
 [Name, Adresse]
 
 <!-- Zweckentfremdung (for STR apartments in Berlin) -->
@@ -96,14 +96,14 @@ Registriernummer gemäß § 5 Abs. 3 ZwVbG BE: [XX/X/AZ/XXXXXX-XX]
 
 ## Cookie Banner Text Template
 
-For `draft cookie-banner`. Must comply with TTDSG § 25(1) and Planet49/BGH requirements.
+For `draft cookie-banner`. Must comply with TDDDG § 25(1) and Planet49/BGH requirements.
 
 ```markdown
 **DE:**
 
 # Datenschutzeinstellungen
 
-Diese Website verwendet Cookies und ähnliche Technologien. Notwendige Cookies sind für den Betrieb der Website erforderlich (TTDSG § 25 Abs. 2). Optionale Cookies nutzen wir nur mit Ihrer Einwilligung (TTDSG § 25 Abs. 1, Art. 6 Abs. 1 lit. a DSGVO).
+Diese Website verwendet Cookies und ähnliche Technologien. Notwendige Cookies sind für den Betrieb der Website erforderlich (TDDDG § 25 Abs. 2). Optionale Cookies nutzen wir nur mit Ihrer Einwilligung (TDDDG § 25 Abs. 1, Art. 6 Abs. 1 lit. a DSGVO).
 
 **Notwendig** (immer aktiv)
 Speicherung Ihrer Cookie-Einstellungen, Sitzungsverwaltung.
@@ -121,7 +121,7 @@ Weitere Informationen in unserer [Datenschutzerklärung] und unserem [Impressum]
 
 # Privacy Settings
 
-This website uses cookies and similar technologies. Necessary cookies are required to operate the website (TTDSG § 25(2)). Optional cookies are only used with your consent (TTDSG § 25(1), Art. 6(1)(a) GDPR).
+This website uses cookies and similar technologies. Necessary cookies are required to operate the website (TDDDG § 25(2)). Optional cookies are only used with your consent (TDDDG § 25(1), Art. 6(1)(a) GDPR).
 
 **Necessary** (always active)
 Storing your cookie preferences, session management.

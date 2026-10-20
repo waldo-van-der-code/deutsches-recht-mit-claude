@@ -1,4 +1,4 @@
-# Law Reference — DSGVO / TTDSG / BDSG / TMG
+# Law Reference — DSGVO / TDDDG / BDSG / TMG
 
 German data protection law quick-reference for the legal-audit skill. Load this when classifying violations or drafting legal text.
 
@@ -33,15 +33,17 @@ German data protection law quick-reference for the legal-audit skill. Load this 
 
 ---
 
-## TTDSG (Telekommunikation-Telemedien-Datenschutz-Gesetz)
+## TDDDG (Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz, bis 13.05.2024 „TTDSG“)
+
+Cite as TDDDG; § 25 is unchanged in substance. Users may still say "TTDSG".
 
 | Section | Rule | Summary |
 |---|---|---|
 | § 25(1) | Consent for device access | Any storage in or access to user's device requires consent — covers cookies, localStorage, device fingerprinting |
 | § 25(2) | Strictly necessary exemption | Exempts: session management cookies, consent preference storage, load balancing, first-party analytics with no cross-site tracking |
-| § 25(3) | Relation to DSGVO | TTDSG § 25 applies first; DSGVO applies to the data collected after access is granted |
+| § 25(3) | Relation to DSGVO | TDDDG § 25 applies first; DSGVO applies to the data collected after access is granted |
 
-**Key implication:** TTDSG § 25(1) is stricter than DSGVO Art. 6 — even a legitimate interest under DSGVO still requires consent for the device access step (unless strictly necessary).
+**Key implication:** TDDDG § 25(1) is stricter than DSGVO Art. 6 — even a legitimate interest under DSGVO still requires consent for the device access step (unless strictly necessary).
 
 ---
 
@@ -57,15 +59,15 @@ German data protection law quick-reference for the legal-audit skill. Load this 
 
 ## TMG / DDG (Telemediengesetz / Digitale-Dienste-Gesetz)
 
-DDG replaced TMG in 2024 but § 5 requirements are substantively identical.
+DDG replaced TMG on 14.05.2024; § 5 requirements are substantively identical. Citing "§ 5 TMG" on a live Impressum is outdated (🟡, fix wording). Editorial responsibility: § 18 Abs. 2 MStV (the RStV § 55 was replaced in 2020).
 
-**Required Impressum fields (TMG § 5 / DDG § 5):**
+**Required Impressum fields (DDG § 5):**
 - Full name or company name + legal form
 - Street address (no PO box)
 - Contact: email address AND phone or fax number
 - VAT ID (if applicable)
 - Supervisory authority (if regulated profession)
-- Responsible for content per § 55 RStV (if journalistic/editorial content)
+- Responsible for content per § 18 Abs. 2 MStV (if journalistic/editorial content)
 
 ---
 
@@ -73,15 +75,15 @@ DDG replaced TMG in 2024 but § 5 requirements are substantively identical.
 
 | Scenario | Article | Severity | Fix |
 |---|---|---|---|
-| Analytics script fires before consent granted | TTDSG § 25(1), Art. 6(1)(a) | 🔴 | Gate behind consent check |
+| Analytics script fires before consent granted | TDDDG § 25(1), Art. 6(1)(a) | 🔴 | Gate behind consent check |
 | Third-party script loaded, not disclosed in policy | Art. 13, Art. 5(1)(a) | 🔴 | Add processor section to privacy page |
 | Email processor undisclosed (nodemailer, Resend, etc.) | Art. 13, Art. 28 | 🔴 | Add to privacy page + sign DPA |
-| No Impressum page | TMG/DDG § 5 | 🔴 | Create /impressum page |
+| No Impressum page | DDG § 5 | 🔴 | Create /impressum page |
 | US processor without SCC mention in policy | Art. 46(2)(c) | 🟡 | Document SCCs in privacy page |
 | Google Fonts from CDN, no consent or self-hosting | LG München I 2022, Art. 6(1)(f) | 🟡 | Self-host or document LIA |
 | No retention period documented | Art. 5(1)(e) | 🟡 | Add retention periods to VVT and privacy page |
-| localStorage for consent preference only | TTDSG § 25(2) | 🟢 | Strictly necessary — no action needed |
-| Analytics only after explicit opt-in | Art. 6(1)(a), TTDSG § 25(1) | ✅ | Compliant — document it |
+| localStorage for consent preference only | TDDDG § 25(2) | 🟢 | Strictly necessary — no action needed |
+| Analytics only after explicit opt-in | Art. 6(1)(a), TDDDG § 25(1) | ✅ | Compliant — document it |
 
 ---
 

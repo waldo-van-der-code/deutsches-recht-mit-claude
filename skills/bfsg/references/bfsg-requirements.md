@@ -12,10 +12,10 @@ Lade diese Datei nur in Modus A (URL-Scan) und B (Code-Audit). Nicht alles auf e
 | EU-Richtlinie 2019/882 | European Accessibility Act (EAA) | — (DE-Umsetzung = BFSG) |
 | DIN EN 301 549 v3.2.1 | Technische Norm (referenziert WCAG 2.1 AA) | — |
 
-**Kleinstunternehmen-Ausnahme (§ 2 Abs. 4 BFSG):**
+**Kleinstunternehmen-Ausnahme (Definition § 2 Nr. 17, Ausnahme § 3 Abs. 3 BFSG):**
 - Weniger als 10 Beschäftigte UND
 - Jahresumsatz oder Jahresbilanzsumme ≤ 2 Millionen Euro
-- → Ausnahme von BFSG-Pflichten (aber: freiwillige Compliance empfohlen)
+- → Ausnahme gilt für **Dienstleistungen** (nicht für Produkte); freiwillige Compliance empfohlen
 
 **Geltungsbereich (§ 1 BFSG):**
 - B2C Dienste: E-Commerce, Banking, E-Books, Telekommunikation, Verkehrsdienste
@@ -109,7 +109,7 @@ Diese Bereiche werden durch BFSG Anhang, Abschnitt VI explizit für E-Commerce-D
 
 ---
 
-## Barrierefreiheitserklärung (§ 12 BFSG)
+## Informationen zur Barrierefreiheit (§ 14 BFSG i. V. m. Anlage 3)
 
 Pflichtangaben:
 
@@ -117,22 +117,14 @@ Pflichtangaben:
 2. Nicht barrierefreie Inhalte + Begründung (unverhältnismäßige Belastung nach § 3a)
 3. Barrierefreie Alternativen (falls vorhanden)
 4. Kontaktstelle für Rückmeldungen
-5. Beschwerdeverfahren (§ 17 BFSG) — Link auf zuständige Durchsetzungsstelle
+5. Verweis auf die zuständige Marktüberwachung (MLBF)
 
 ---
 
-## Zuständige Behörden und Beschwerdeverfahren (§ 17 BFSG)
+## Zuständige Marktüberwachung
 
-Durchsetzungs- und Überwachungsstellen nach Bundesland (Stand 2025):
+Für **alle Bundesländer** zuständig ist eine gemeinsame Stelle: die **Marktüberwachungsstelle der Länder für die Barrierefreiheit von Produkten und Dienstleistungen (MLBF)**, Magdeburg, arbeitsfähig seit 26.09.2025 — https://www.mlbf-barrierefrei.de/ . Keine Landes-Senatsverwaltungen/Ministerien nennen (häufiger Fehler, auch in älteren Versionen dieses Skills).
 
-| Bundesland | Zuständige Stelle |
-|---|---|
-| Bayern | Bayerisches Staatsministerium für Digitales |
-| NRW | Ministerium für Arbeit, Gesundheit und Soziales NRW |
-| Berlin | Senatsverwaltung für Digitalisierung |
-| Hamburg | Behörde für Arbeit, Soziales, Familie und Integration |
-| Bundesebene / alle | Marktüberwachungsbehörden der Länder |
+Verbraucher können sich direkt an die MLBF wenden; sie kann Maßnahmen gegen den Dienstleister anordnen.
 
-→ Aktuelle Liste und Beschwerde-Links: [BMAS Barrierefreiheit](https://www.bmas.de/DE/Soziales/Teilhabe-und-Inklusion/Barrierefreiheit/) prüfen, da die Zuweisungen sich 2025 noch konkretisieren.
-
-**Sanktionen (§ 23 BFSG):** Bußgeld bis zu **100.000 Euro** pro Verstoß.
+**Sanktionen (Bußgeldvorschriften des BFSG):** Bußgeld bis zu **100.000 Euro** — Paragraph vor Zitat im Gesetzestext prüfen.

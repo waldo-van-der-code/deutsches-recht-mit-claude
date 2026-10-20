@@ -8,7 +8,7 @@ version: 1.0.0
 
 Prüft, ob die Widerrufsmöglichkeit für erteilte Einwilligungen **genauso einfach** ist wie die Einwilligung selbst — die Kernpflicht aus Art. 7(3) DSGVO.
 
-Gesetzesquellen: DSGVO Art. 7(3), TTDSG § 25 via `rechtsinformationen-bund-de` MCP.
+Gesetzesquellen: DSGVO Art. 7(3), TDDDG § 25 via `rechtsinformationen-bund-de` MCP.
 
 > **Lücke:** Die wichtigsten Umsetzungshinweise stammen aus den **DSK-Orientierungshilfen** (Datenschutzkonferenz) — diese sind nicht im MCP verfügbar. Relevante Dokumente: [DSK Orientierungshilfe Telemedien](https://www.datenschutzkonferenz-online.de/), [DSK Beschluss zu Cookie-Bannern 2022](https://www.datenschutzkonferenz-online.de/). Beim Nachschlagen von Implementierungsdetails darauf hinweisen und empfehlen, diese Dokumente manuell zu prüfen.
 
@@ -37,7 +37,7 @@ Display:
 **Art. 7(3) DSGVO — Widerruf der Einwilligung (Kernsatz):**
 > *"Die betroffene Person hat das Recht, ihre Einwilligung jederzeit zu widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt. Die betroffene Person wird vor Abgabe der Einwilligung hiervon in Kenntnis gesetzt. Der Widerruf der Einwilligung muss so einfach wie die Erteilung der Einwilligung sein."*
 
-**TTDSG § 25 — Cookies & Tracking:**
+**TDDDG § 25 — Cookies & Tracking:**
 Der gleiche Grundsatz gilt für Einwilligungen zum Setzen/Auslesen von Cookies und Tracking-Technologien. Der Widerruf muss jederzeit möglich und so einfach wie die ursprüngliche Einwilligung sein.
 
 **DSK-Interpretation (nicht im MCP — manuell prüfen):**
@@ -71,11 +71,11 @@ Prüfe jeden Punkt und klassifiziere: 🔴 Verstoß / 🟡 Risiko / 🟢 Konform
 
 | Prüfpunkt | Rechtsgrundlage | Klassifizierung |
 |---|---|---|
-| "Alle ablehnen" Button vorhanden (gleichrangig zu "Alle akzeptieren") | Art. 7(3) DSGVO, TTDSG § 25 | 🔴 falls fehlt |
+| "Alle ablehnen" Button vorhanden (gleichrangig zu "Alle akzeptieren") | Art. 7(3) DSGVO, TDDDG § 25 | 🔴 falls fehlt |
 | "Ablehnen" nicht versteckt in Untermenü, wenn "Akzeptieren" direkt sichtbar | DSK Orientierungshilfe | 🔴 falls asymmetrisch |
 | Gleiche oder ähnliche Schriftgröße / Kontrast beider Buttons | BGH I ZR 186/17 "Cookie-Einwilligung" | 🟡 falls visuell deutlich unterschiedlich |
 | Kein Pre-Check von optionalen Cookies | Art. 6(1)(a) DSGVO, Planet49 EuGH | 🔴 falls vorausgewählt |
-| Banner blockiert Seite bis zur Entscheidung (kein "X" als Einwilligung) | TTDSG § 25 | 🟡 falls X = Akzeptieren |
+| Banner blockiert Seite bis zur Entscheidung (kein "X" als Einwilligung) | TDDDG § 25 | 🟡 falls X = Akzeptieren |
 
 **Widerruf nach erteilter Einwilligung**
 
@@ -85,6 +85,9 @@ Prüfe jeden Punkt und klassifiziere: 🔴 Verstoß / 🟡 Risiko / 🟢 Konform
 | Widerruf mit ≤ gleich vielen Klicks wie ursprüngliche Einwilligung | Art. 7(3) DSGVO | 🔴 falls mehr Schritte |
 | Widerruf ohne Anmeldung / Konto möglich | Art. 7(3) DSGVO | 🔴 falls Login erforderlich |
 | Nach Widerruf: Seite bleibt zugänglich (kein "Pay or OK") ohne legitime Grundlage | Art. 7(3) + ErwGr. 42 DSGVO | 🟡 — komplex, manuell prüfen |
+| Ablehnen/Widerruf löscht gesetzte Cookies — auch auf der Parent-Domain (`.example.de`) und `ph_*`/`_gcl*` im Local/Session Storage | Art. 7(3), Art. 17 DSGVO | 🟡 falls Cookies bleiben (im echten Browser prüfen) |
+| Nach Ablehnen wird nichts mehr gesendet — auch nicht der per Autocapture erfasste Klick auf „Ablehnen“ (PostHog: `ph-no-capture` + `before_send`) | § 25 TDDDG | 🟡 falls Event nach Ablehnen |
+| Mehrere „Einstellungen“-Buttons verhalten sich gleich (kein Button, der nur die Wahl löscht und neu lädt, ohne Tracking zu stoppen) | Art. 7(3) DSGVO | 🟡 falls abweichend |
 
 **Information über Widerruf**
 
@@ -108,7 +111,7 @@ Cookie-Banner/CMP erkannt: [ja/nein/unklar]
 
 🔴 Verstöße — [N]
   [Prüfpunkt] — Fundstelle: [HTML/Screenshot-Beschreibung]
-  Rechtsgrundlage: [Art. X(X) DSGVO / § X TTDSG]
+  Rechtsgrundlage: [Art. X(X) DSGVO / § X TDDDG]
   Wortlaut: "[zitierter Gesetzestext]"
   Behebung: [konkrete Maßnahme]
 
@@ -165,7 +168,7 @@ grep -rE "<input[^>]+type=\"checkbox\"[^>]+checked" \
 
 Häufige Muster und ihre Bewertung:
 
-- Tracking-Code außerhalb von Consent-Gate → 🔴 Art. 6(1)(a) DSGVO, TTDSG § 25
+- Tracking-Code außerhalb von Consent-Gate → 🔴 Art. 6(1)(a) DSGVO, TDDDG § 25
 - Kein `revokeConsent`-Handler in CMP-Integration → 🔴 Art. 7(3) DSGVO
 - `checked` Attribut auf optionalen Marketing-Cookies → 🔴 Planet49 EuGH
 - CMP ohne Footer-Link zur Einstellungsänderung → 🔴 Art. 7(3) DSGVO
@@ -196,7 +199,7 @@ die DSK-Orientierungshilfe Telemedien geprüft werden (nicht im MCP verfügbar).
 Gibt die vollständige Widerruf-UX-Checkliste für e-commerce aus — für manuelle Prüfung oder Design-Reviews.
 
 ```
-## Widerruf-UX-Checkliste (Art. 7(3) DSGVO + TTDSG § 25)
+## Widerruf-UX-Checkliste (Art. 7(3) DSGVO + TDDDG § 25)
 
 ### Schritt-Symmetrie
 [ ] "Alle ablehnen" mit gleichem Klickaufwand wie "Alle akzeptieren" erreichbar

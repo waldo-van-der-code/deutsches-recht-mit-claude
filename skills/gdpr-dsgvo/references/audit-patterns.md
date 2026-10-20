@@ -118,7 +118,7 @@ When auditing a live site's cookie banner, check all of the following:
 - [ ] Individual service toggle available (not just "all or nothing")
 
 **Consent memory:**
-- [ ] Consent preference stored in localStorage (TTDSG § 25(2) strictly necessary exemption applies)
+- [ ] Consent preference stored in localStorage (TDDDG § 25(2) strictly necessary exemption applies)
 - [ ] On return visit, banner does NOT re-show if user already consented
 - [ ] On return visit, analytics scripts fire only if consent was previously granted
 

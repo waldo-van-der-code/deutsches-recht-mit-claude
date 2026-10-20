@@ -6,7 +6,7 @@ version: 1.0.0
 
 # /legal-audit — German DSGVO Legal Compliance
 
-German-jurisdiction legal compliance for websites and apps. Covers DSGVO, TTDSG, BDSG, TMG/DDG, and relevant German case law. Grounds all findings in actual statute via the `rechtsinformationen-bund-de` MCP when available (see README for setup).
+German-jurisdiction legal compliance for websites and apps. Covers DSGVO, TDDDG, BDSG, DDG, and relevant German case law. Grounds all findings in actual statute via the `rechtsinformationen-bund-de` MCP when available (see README for setup).
 
 **Default jurisdiction:** Germany. Supervisory authority defaults to the authority of your Bundesland — see `references/law-reference.md` for a complete list. Also covers Austria (DSG) and Switzerland (nDSG) where noted.
 
@@ -59,16 +59,23 @@ For each finding, assign severity (🔴 Hoch / 🟡 Mittel / 🟢 Niedrig) and c
 
 Load `references/law-reference.md` for the full article-to-violation mapping table. Key rules:
 
-- Third-party script fires before consent check → 🔴 Hoch — TTDSG § 25(1), DSGVO Art. 6(1)(a)
+- Third-party script fires before consent check → 🔴 Hoch — TDDDG § 25(1), DSGVO Art. 6(1)(a)
+- Google Consent Mode **"advanced"** (gtag.js loads before consent and sends cookieless pings, `gcs=G100` in `/g/collect`) → 🔴 Hoch — IP/device data reach Google before any choice; privacy texts usually claim "only after consent". Fix: inject gtag.js only after Accept ("basic" mode); set `ad_user_data`/`ad_personalization` too
+- Third-party iframes (Google Maps, YouTube, Google Drive video previews, social embeds) loading on page view → 🔴 Hoch — click-to-load gate; check **every** page, not just the one the privacy text mentions
+- Operator alert channels (Telegram/Slack/Discord bots, error trackers) receiving customer names/emails → 🔴 Hoch — undisclosed recipient, usually no Art. 28 agreement; send IDs/booking refs only, redact centrally
+- Controller not named with full postal address in the privacy policy → 🔴 Hoch — DSGVO Art. 13(1)(a)
+- Hosting provider (Vercel, Netlify, …) not disclosed, US vendors without DPF/SCC basis, EU entity misnamed (e.g. Stripe Payments Europe Ltd., not Stripe Inc.) → 🟡 Mittel — Art. 13(1)(e)/(f)
+- No retention periods for booking/invoice data → 🟡 Mittel — Art. 13(2)(a); § 147 AO / § 14b UStG (8 years for Buchungsbelege since BEG IV, 10 for books)
+- Privacy section exists in one language only on a multilingual site → 🟡 Mittel — Art. 12(1) (transparent, intelligible)
 - PII collected in form with no Art. 13 disclosure → 🔴 Hoch — DSGVO Art. 13
 - Email send handler, processor not in privacy policy → 🔴 Hoch — DSGVO Art. 13, Art. 28
 - US processor used, no SCC documented → 🟡 Mittel — DSGVO Art. 46(2)(c)
 - Google Fonts loaded from CDN → 🟡 Mittel — LG München I 2022
-- localStorage for consent preference only → 🟢 Niedrig — TTDSG § 25(2) exemption
+- localStorage for consent preference only → 🟢 Niedrig — TDDDG § 25(2) exemption
 - Analytics gated behind consent → 🟢 Niedrig — compliant
 
 Also check:
-- **Impressum:** TMG § 5 / DDG § 5 — name, address, contact, VAT ID required on every commercial site
+- **Impressum:** DDG § 5 — name, address, contact, VAT ID required on every commercial site. "§ 5 TMG" / "§ 55 RStV" wording is outdated → 🟡
 - **DPO threshold:** BDSG § 38 — mandatory if 20+ employees regularly process personal data
 
 ### A3 — Law lookup
@@ -81,7 +88,7 @@ For each 🔴 finding, use `semantische_rechtssuche` to pull the exact statutory
 ## Code Audit — [project]  |  [date]  |  Law: [MCP/built-in]
 
 🔴 Hoch — [N]
-  [file:line] [issue] — [Article] DSGVO / § [X] TTDSG
+  [file:line] [issue] — [Article] DSGVO / § [X] TDDDG
   Statutory text: "[quoted text from MCP]"
   Fix: [one-line concrete action]
 
@@ -108,6 +115,7 @@ Use `WebFetch` on the target URL. Extract and analyze:
 3. `<form>` elements with PII inputs
 4. Presence and reachability of `/impressum`, `/privacy` (or `/datenschutz`), `/robots.txt`
 5. Privacy page content — does it name every third-party domain found in step 1?
+6. **Real-browser network check (required — WebFetch cannot see it):** load the key pages in Playwright without any consent decision, scroll to the bottom (lazy iframes), and record every request to third-party hosts. Then click Accept, then reopen the settings and Decline, and list what is left: cookies on the host **and parent domain** (`_ga` is often set on `.example.de`, shared with sibling subdomains), `ph_*`/`_gcl*` in local/session storage, and any analytics request sent after Decline (autocapture records the Decline click itself and flushes it seconds later).
 
 Load `references/audit-patterns.md` for the third-party domain classification table and consent-banner correctness checklist.
 
@@ -167,8 +175,8 @@ Supported types:
 |---|---|
 | `privacy-section <processor>` | Single Art. 13 processor disclosure block (DE + EN) |
 | `privacy-page` | Full Datenschutzerklärung skeleton |
-| `impressum` | Impressum block per TMG § 5 / DDG § 5 |
-| `cookie-banner` | Consent banner text (DE + EN), TTDSG § 25 compliant |
+| `impressum` | Impressum block per DDG § 5 |
+| `cookie-banner` | Consent banner text (DE + EN), TDDDG § 25 compliant |
 | `vvt` | Blank Art. 30 VVT template |
 | `art13-notice` | Art. 13 notice for a specific form or data collection point |
 | `dpa-checklist` | Processor DPA to-do list with links |
@@ -197,7 +205,7 @@ Run all four modes sequentially:
 ## Output Standards
 
 - **Severity:** 🔴 Hoch (likely DPA interest, fix immediately) / 🟡 Mittel (fix before next release) / 🟢 Niedrig or ✅ Compliant
-- **Citations:** every finding cites a DSGVO article, TTDSG section, or BDSG section — no unanchored claims
+- **Citations:** every finding cites a DSGVO article, TDDDG section, or BDSG section — no unanchored claims
 - **Law source note:** if MCP used, state which queries ran; if fallback, note *(Gesetzestext aus Trainingsdaten — verifizieren auf gesetze-im-internet.de)*
 - **Disclaimer:** append to every output — *Dieser Bericht dient der technischen Orientierung und ersetzt keine Rechtsberatung.*
 
@@ -207,7 +215,7 @@ Run all four modes sequentially:
 
 Load these reference files when needed — do not load all at once:
 
-- **`references/law-reference.md`** — DSGVO/TTDSG/BDSG article table, violation-to-article mapping, key German case law (LG München I 2022, Planet49, Schrems II), supervisory authorities per Bundesland
+- **`references/law-reference.md`** — DSGVO/TDDDG/BDSG article table, violation-to-article mapping, key German case law (LG München I 2022, Planet49, Schrems II), supervisory authorities per Bundesland
 - **`references/audit-patterns.md`** — grep patterns for code audit, third-party domain classification table, consent banner correctness checklist, framework-specific patterns (Next.js, Astro, React)
 - **`references/data-flow.md`** — Art. 30 VVT template, known processor DPA URLs, cross-border transfer matrix
 - **`references/document-templates.md`** — required disclosure elements per document type, Art. 13 checklist, Impressum checklist, cookie banner template, data subject rights section

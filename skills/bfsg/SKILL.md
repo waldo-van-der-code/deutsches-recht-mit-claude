@@ -25,9 +25,11 @@ Parse invocation args or user intent:
 
 Check MCP availability: attempt `intelligente_rechtssuche` with query `BFSG Barrierefreiheitsstärkungsgesetz`. If it responds, use it for all law lookups. If unavailable, fall back to built-in knowledge — note which source was used.
 
-Prüfe Ausnahmetatbestand (§ 2 Abs. 4 BFSG Kleinstunternehmen):
-- Kleinstunternehmen = weniger als 10 Beschäftigte UND Jahresumsatz/Bilanzsumme ≤ 2 Mio. €
-- Falls Kleinstunternehmen → flag, aber trotzdem auf freiwillige Compliance prüfen
+Prüfe Ausnahmetatbestand (Kleinstunternehmen: Definition § 2 Nr. 17 BFSG, Ausnahme für Dienstleistungen § 3 Abs. 3 BFSG):
+- Kleinstunternehmen = weniger als 10 Beschäftigte UND Jahresumsatz ODER Jahresbilanzsumme ≤ 2 Mio. €
+- Die Ausnahme gilt nur für **Dienstleistungen** (z. B. Online-Buchung, Shop als Dienst), nicht für Produkte
+- Typisch ausgenommen: Privatvermieter einer Ferienwohnung, Solo-Selbstständige
+- Falls Kleinstunternehmen → Ergebnis klar als „BFSG gilt nicht“ ausweisen, dann freiwillige Best-Practice-Prüfung. Eine freiwillige Erklärung muss trotzdem korrekt sein (falsche Angaben = UWG-Risiko).
 
 Display:
 > **bfsg-check** | Modus: [X] | Ziel: [Y] | Gesetzesquelle: [MCP / Trainingsdaten]
@@ -98,8 +100,9 @@ Prüfe jeden Punkt und klassifiziere: 🔴 Fehler / 🟡 Warnung / 🟢 Bestande
 
 ### A3 — Pflichtdokumente prüfen
 
-- **Barrierefreiheitserklärung** (§ 12 BFSG): Ist `/barrierefreiheit`, `/accessibility` oder eine verlinktes Dokument vorhanden? Fehlt → 🔴
-- **Beschwerdeverfahren** (§ 17 BFSG): Muss in der Erklärung verlinkt sein
+- **Informationen zur Barrierefreiheit** (§ 14 BFSG i. V. m. Anlage 3; nicht § 12 — das ist BITV-Sprache für öffentliche Stellen): Ist `/barrierefreiheit`, `/accessibility` oder ein verlinktes Dokument vorhanden? Fehlt (und keine Ausnahme) → 🔴
+- **Zuständige Marktüberwachung**: Erklärung soll auf die MLBF verweisen (siehe unten). Steht dort eine Landesbehörde/Senatsverwaltung → 🟡 falsch
+- **Erklärung aktuell?** Datum, behauptete Merkmale (z. B. Skip-Link) gegen die Live-Seite prüfen — veraltete Angaben → 🟡
 
 ### A4 — Gesetzestext nachschlagen
 
@@ -125,8 +128,8 @@ Kleinstunternehmen-Ausnahme: [ja / nein / unklar]
 ⚪ Manuelle Prüfung erforderlich — [Liste]
 
 Pflichtdokumente:
-  Barrierefreiheitserklärung (§ 12 BFSG): [✓ vorhanden / ✗ fehlt]
-  Beschwerdeverfahren (§ 17 BFSG): [✓ / ✗]
+  Informationen zur Barrierefreiheit (§ 14 + Anlage 3 BFSG): [✓ vorhanden / ✗ fehlt]
+  Verweis auf MLBF: [✓ / ✗]
 
 Gesamtbewertung: [konform / teilkonform / nicht konform]
 Dringlichkeit: [sofort handeln / vor nächstem Release / mittelfristig]
@@ -212,14 +215,14 @@ Gesamteinschätzung: [X] 🔴-Befunde müssen vor dem 28. Juni 2025 behoben sein
 
 ## Modus C — Barrierefreiheitserklärung generieren
 
-Generiert eine BFSG-konforme Barrierefreiheitserklärung (§ 12 BFSG).
+Generiert eine Erklärung zur Barrierefreiheit für Dienstleistungen (§ 14 BFSG i. V. m. Anlage 3). Für ausgenommene Kleinstunternehmen als **freiwillige** Erklärung kennzeichnen.
 
-Erforderliche Pflichtangaben (§ 12 Abs. 2 BFSG):
+Empfohlene Angaben:
 1. Erklärung zum Grad der Konformität (voll konform / teilweise konform / nicht konform)
 2. Nicht barrierefreie Inhalte + Begründung
 3. Barrierefreie Alternativen (falls vorhanden)
 4. Kontaktstelle für Rückmeldungen
-5. Beschwerdeverfahren (§ 17 BFSG) — Verlinkung auf zuständige Stelle
+5. Zuständige Marktüberwachung: MLBF (https://www.mlbf-barrierefrei.de/)
 
 ```markdown
 ---
@@ -249,7 +252,8 @@ Bei Problemen mit der Barrierefreiheit dieser Website wenden Sie sich bitte an:
 ## Beschwerdeverfahren
 
 Wenn Sie mit unserer Antwort nicht zufrieden sind, können Sie sich an die zuständige
-Durchsetzungs- und Überwachungsstelle wenden: [Zuständige Behörde + Link, § 17 BFSG]
+Marktüberwachungsstelle wenden: Marktüberwachungsstelle der Länder für die Barrierefreiheit
+von Produkten und Dienstleistungen (MLBF), Magdeburg — https://www.mlbf-barrierefrei.de/
 
 *Dieser Erklärungstext wurde mit KI-Unterstützung erstellt. 
 Kein Ersatz für eine vollständige Barrierefreiheitsprüfung durch Fachleute.*

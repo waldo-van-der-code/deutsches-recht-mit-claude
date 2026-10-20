@@ -12,12 +12,12 @@ Lade diese Datei nur wenn Detailwissen zu Rechtsgrundlagen oder Muster-Texten be
 
 **Schlüsselsatz:** „Der Widerruf der Einwilligung muss **so einfach** wie die Erteilung der Einwilligung sein."
 
-### TTDSG § 25 — Schutz der Privatsphäre bei Endeinrichtungen
+### TDDDG § 25 — Schutz der Privatsphäre bei Endeinrichtungen
 
 § 25 Abs. 1: Einwilligung erforderlich für das Speichern/Auslesen nicht unbedingt erforderlicher Informationen auf Endgeräten.
 § 25 Abs. 2: Ausnahmen (technisch notwendige Cookies).
 
-**Widerruf-Implikation:** Die für das Setzen optionaler Cookies erteilte Einwilligung muss nach TTDSG i.V.m. Art. 7(3) DSGVO jederzeit widerrufbar sein.
+**Widerruf-Implikation:** Die für das Setzen optionaler Cookies erteilte Einwilligung muss nach § 25 TDDDG i.V.m. Art. 7(3) DSGVO jederzeit widerrufbar sein.
 
 ---
 

@@ -145,6 +145,34 @@ Lookup: `intelligente_rechtssuche("BGB Anlage 2 § 356 Muster-Widerrufsformular"
 
 Lookup: `intelligente_rechtssuche("BGB § 305 AGB Einbeziehung Fernabsatz")`
 
+Hinweise aus Praxisfällen:
+- „Eine bestätigte Buchung gilt als Zustimmung zu den AGB“ ist **keine** wirksame Einbeziehung (§ 305 Abs. 2 BGB) → 🔴. Hinweis mit Links direkt am Absende-/Zahlungsschritt.
+- Pauschaler Haftungsausschluss ohne Ausnahme für Leben/Körper/Gesundheit und grobe Fahrlässigkeit → 🔴 § 309 Nr. 7 BGB.
+- „Zahlung gemäß Plattform“ o. ä. in AGB eines Direktbuchungs-Shops → 🟡 (Zahlungsweg/Vertragsschluss konkret benennen).
+
+---
+
+**8. Unterkünfte, Ferienwohnungen, Termin-Dienstleistungen**
+
+Erkennen: Buchungskalender, Check-in/Check-out, Übernachtungspreise, Smoobu/Airbnb/Booking-Bezug.
+
+| Prüfpunkt | Rechtsgrundlage | Klassifizierung |
+|---|---|---|
+| Hinweis **„kein Widerrufsrecht“** vor Vertragsschluss (Beherbergung zu festem Termin) | § 312g Abs. 2 Nr. 9 BGB, Art. 246a § 1 Abs. 3 EGBGB | 🔴 falls fehlt |
+| Abschnitte 5/6 (Widerrufsbelehrung, Muster-Formular) entfallen — stattdessen klare Stornobedingungen | § 312g Abs. 2 Nr. 9 BGB | — |
+| Späte Stornierung: Preis abzüglich ersparter Aufwendungen (z. B. Reinigung) und Erlös aus Weitervermietung | § 537 Abs. 1 BGB; § 308 Nr. 7, § 309 Nr. 5 BGB | 🟡 falls „nicht erstattungsfähig“ ohne Anrechnung |
+| Erstattungsweg/-frist und Storno durch den Vermieter geregelt | § 307 BGB (Transparenz) | 🟡 falls fehlt |
+| Endpreis inkl. USt. und Übernachtungsteuer/City Tax, Hinweis am Preis | PAngV § 3 | 🟡 falls unklar |
+| Registriernummer (z. B. Berlin ZwVbG) in **jedem** Angebot — Footer/Buchungsseite, nicht nur Impressum | Landesrecht (Zweckentfremdungsverbot) | 🔴 falls nur im Impressum |
+| Buchungsbestätigung auf dauerhaftem Datenträger mit Vertragsinhalt: Termine, Preisaufschlüsselung, Adresse, Check-in/out, Vermieter, Storno, AGB-Link, Widerrufs-Hinweis — in der Buchungssprache | § 312f Abs. 2 BGB | 🔴 falls nur Gesamtbetrag |
+| Zahlungsbeleg/Rechnung; bei USt-Pflicht Rechnung nach § 14 UStG auf Wunsch (Geschäftsreisende) | § 14 UStG | 🟡 |
+| Bewertungsbitte nicht in der Buchungsbestätigung vor dem Aufenthalt; Werbung in Transaktionsmails nur mit Widerspruchshinweis | § 7 Abs. 3 UWG | 🟡 |
+| Meldeschein für ausländische Gäste (Deutsche seit 01.01.2025 befreit) | §§ 29, 30 BMG | ⚪ Betrieb, nicht Website — erwähnen |
+
+**Button-Lösung bei eingebetteten Zahlungsanbietern (Stripe Checkout u. ä.):** Der Button-Text des Anbieters („Zahlen“/„Pay“) ist meist nicht frei wählbar. Prüfen, ob direkt am Button ein Hinweis auf die Zahlungspflicht steht (Stripe: `custom_text.submit`). `submit_type: "book"` („Buchen“) ist schlechter als „Zahlen“ (EuGH C-249/21). Den Hinweistext generisch formulieren („Mit Klick auf den Zahlungs-Button …“), weil das Label je Sprache variiert.
+
+**Streitbeilegung:** Die EU-OS-Plattform wurde am 20.07.2025 eingestellt — ein ODR-Link ist veraltet (🟡, entfernen). Hinweis nach § 36 VSBG nur für Unternehmen mit mehr als 10 Beschäftigten Pflicht; freiwillig: „nicht bereit und nicht verpflichtet“.
+
 ---
 
 ### A3 — Gesetzestext nachschlagen
