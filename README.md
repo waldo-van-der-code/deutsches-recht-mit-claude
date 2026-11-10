@@ -4,6 +4,8 @@
 
 *3 Claude Code skills for German website operators — DSGVO/GDPR, BFSG accessibility, and consent withdrawal, grounded in live statutory text.*
 
+**Der Artikel dazu:** https://waldo.vanderlore.de/blog/german-legal-compliance-for-small-websites/
+
 > ⚠️ **Keine Rechtsberatung.** Diese Skills helfen dabei, rechtlich relevante Muster zu finden und zu dokumentieren. Outputs sollten von einem qualifizierten Datenschutzbeauftragten oder Rechtsanwalt geprüft werden.
 
 ---
